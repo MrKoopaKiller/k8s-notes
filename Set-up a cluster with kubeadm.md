@@ -124,11 +124,12 @@ sudo apt-get install -y kubelet kubeadm kubectl
 </code></pre>
 <h2 id="initialize-the-cluster">Initialize the cluster</h2>
 <p>The following command will initialize the control panel node:</p>
-<pre><code>sudo kubeadm init
+<pre><code>sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 </code></pre>
 <p>The output will show a command with token, save this command to use after to join nodes in this master:</p>
+<p><em><strong>Do not run this command on node at this moment!</strong></em></p>
 <p>Example:</p>
-<pre><code>kubeadm join 10.128.0.28:6443 --token 3v94jm.knuhj0hwtapiujil \
+<pre><code>sudo kubeadm join 192.168.0.20:6443 --token 3v94jm.knuhj0hwtapiujil \
     --discovery-token-ca-cert-hash sha256:cbdc4246bb966f6a6aa536cddf035d785343d63e02d095d63d39d6a18385e81b 
 </code></pre>
 <p>To make kubectl able to non-root user, run theses commands:</p>
@@ -150,6 +151,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 <li>Docker</li>
 <li>Kubeadm</li>
 </ul>
+<h3 id="gce-firewall-rules">GCE Firewall rules</h3>
+<p>GCE blocks traffic between hosts by default; run the following command to allow Calico traffic to flow between containers on different hosts.</p>
+<pre><code>gcloud compute firewall-rules create calico-ipip --allow 4  --network "default"  --source-ranges "10.128.0.0/9"
+</code></pre>
 <p><em>Note: you can use the same steps did you use for control-plane node.</em></p>
 <h3 id="running-kubeadm-join">Running kubeadm join</h3>
 <p>On the target node, use the <code>root</code> user to perform the command from the output of kubeadm init:</p>
