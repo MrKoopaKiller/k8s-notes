@@ -249,9 +249,36 @@ kubeadm join 10.128.0.28:6443 --token 3v94jm.knuhj0hwtapiujil \
 
 If you don't have the token anymore, you can run these command on master node to get the token again:
 
+
+### Install MetalLB
+
+[Cloud Compatibility](https://metallb.universe.tf/installation/clouds/)
+[Network Addon Compatibility](https://metallb.universe.tf/installation/network-addons/)
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.3/manifests/metallb.yaml
 ```
 
+**Layer2 Configuration**
+https://metallb.universe.tf/configuration/#layer-2-configuration
+
+Create a configMap with the ip range you desire:
+
 ```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.1.240-192.168.1.250
+```
+
 ## References
 
 
@@ -267,5 +294,5 @@ If you don't have the token anymore, you can run these command on master node to
 
 [CRI-O](https://github.com/cri-o/cri-o)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwMjEzNDYxM119
+eyJoaXN0b3J5IjpbLTE0NzI0OTcwMzZdfQ==
 -->
