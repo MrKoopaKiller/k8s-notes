@@ -10,6 +10,7 @@ The first one will be the control-plane and the second one will be the worker no
 
 **Debian image:** debian-9-drawfork-v20191004
 **Ubuntu image:** ubuntu-1804-lts
+**Kubernetes Version**: 1.18.0
 
 Creating 2 vm instances on GCP using [gcloud]([https://cloud.google.com/sdk/install](https://cloud.google.com/sdk/install)) tool.
 
@@ -81,15 +82,15 @@ sudo apt-get install docker-ce=<VERSION>
 
 ```
 wget -q --show-progress --https-only --timestamping \
-https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.17.0/crictl-v1.17.0-linux-amd64.tar.gz \
-https://github.com/opencontainers/runc/releases/download/v1.0.0-rc9/runc.amd64 \
-https://github.com/containerd/containerd/releases/download/v1.3.2/containerd-1.3.2.linux-amd64.tar.gz\
+https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.178.0/crictl-v1.178.0-linux-amd64.tar.gz \
+https://github.com/opencontainers/runc/releases/download/v1.0.0-rc910/runc.amd64 \
+https://github.com/containerd/containerd/releases/download/v1.3.22.13/containerd-1.3.2.13.linux-amd64.tar.gz\
 ```
 
 #### Installing runc and crictl
 
 ```
-tar -xvf crictl-v1.17.0-linux-amd64.tar.gz
+tar -xvf crictl-v1.178.0-linux-amd64.tar.gz
 sudo mv runc.amd64 runc
 chmod +x crictl runc
 sudo mv crictl runc /usr/local/bin/
@@ -98,7 +99,7 @@ sudo mv crictl runc /usr/local/bin/
 #### Installing containerd
 ```
 mkdir containerd
-tar -xvf containerd-1.3.2.linux-amd64.tar.gz -C containerd
+tar -xvf containerd-1.3.22.13.linux-amd64.tar.gz -C containerd
 sudo mv containerd/bin/* /usr/local/bin
 rm -rf containerd
 ```
@@ -158,7 +159,13 @@ EOF
 ```
 ```
 sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-get install -y kubelet kubeadm kubectlUpdate system packages list:
+`sudo apt-get update`
+
+Installing the version 1.18 of kubelet, kubeadm and kubectl:
+
+```
+KVERSION="1.18.1-00" ; sudo apt-get install -y kubelet=$KVERSION kubeadm=$KVERSION kubectl=$KVERSION
 ```
 After installing is import mark theses packages to don't update automatically:
 ```
@@ -296,5 +303,5 @@ data:
 
 [MetalLB](https://metallb.universe.tf/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxNTQzODkwOF19
+eyJoaXN0b3J5IjpbLTczMzM0NjU5NywxMzE1NDM4OTA4XX0=
 -->
