@@ -84,10 +84,9 @@ sudo apt-get install docker-ce=<VERSION>
 ### Option 2: Containerd
 
 ```
-wget -q --show-progress --https-only --timestamping \
-https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.178.0/crictl-v1.178.0-linux-amd64.tar.gz \
-https://github.com/opencontainers/runc/releases/download/v1.0.0-rc910/runc.amd64 \
-https://github.com/containerd/containerd/releases/download/v1.3.22.13/containerd-1.3.2.13.linux-amd64.tar.gz\
+wget -q --show-progress --https-only --timestamping https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.18.0/crictl-v1.18.0-linux-amd64.tar.gz \ 
+https://github.com/opencontainers/runc/releases/download/v1.0.0-rc10/runc.amd64 \ 
+https://github.com/containerd/containerd/releases/download/v1.2.13/containerd-1.2.13.linux-amd64.tar.gz
 ```
 
 #### Installing runc and crictl
@@ -301,5 +300,5 @@ data:
 
 [MetalLB](https://metallb.universe.tf/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTkzNzc1MTcsLTczMzM0NjU5N119
+eyJoaXN0b3J5IjpbNjYyNzMwOTQ0LC03MzMzNDY1OTddfQ==
 -->
