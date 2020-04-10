@@ -92,7 +92,7 @@ https://github.com/containerd/containerd/releases/download/v1.2.13/containerd-1.
 #### Installing runc and crictl
 
 ```
-tar -xvf crictl-v1.178.0-linux-amd64.tar.gz
+tar -xvf crictl-v1.18.0-linux-amd64.tar.gz
 sudo mv runc.amd64 runc
 chmod +x crictl runc
 sudo mv crictl runc /usr/local/bin/
@@ -300,5 +300,5 @@ data:
 
 [MetalLB](https://metallb.universe.tf/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjYyNzMwOTQ0LC03MzMzNDY1OTddfQ==
+eyJoaXN0b3J5IjpbMTk5MjQ5MjQ1NSwtNzMzMzQ2NTk3XX0=
 -->
