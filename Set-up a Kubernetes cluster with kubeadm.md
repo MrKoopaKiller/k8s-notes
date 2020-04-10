@@ -101,7 +101,7 @@ sudo mv crictl runc /usr/local/bin/
 #### Installing containerd
 ```
 mkdir containerd
-tar -xvf containerd-1.3.22.13.linux-amd64.tar.gz -C containerd
+tar -xvf containerd-1.2.13.linux-amd64.tar.gz -C containerd
 sudo mv containerd/bin/* /usr/local/bin
 rm -rf containerd
 ```
@@ -300,5 +300,5 @@ data:
 
 [MetalLB](https://metallb.universe.tf/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MjQ5MjQ1NSwtNzMzMzQ2NTk3XX0=
+eyJoaXN0b3J5IjpbNjYyODEzNTMyXX0=
 -->
