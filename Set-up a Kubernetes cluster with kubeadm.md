@@ -9,8 +9,11 @@ The first one will be the control-plane and the second one will be the worker no
 ## Create VM Instances in GCP
 
 **Debian image:** debian-9-drawfork-v20191004
+
 **Ubuntu image:** ubuntu-1804-lts
-**Kubernetes Version**: 1.18.0
+
+**Kubernetes Version** : 1.18.0
+
 
 Creating 2 vm instances on GCP using [gcloud]([https://cloud.google.com/sdk/install](https://cloud.google.com/sdk/install)) tool.
 
@@ -159,13 +162,10 @@ EOF
 ```
 ```
 sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectlUpdate system packages list:
-`sudo apt-get update`
-
-Installing the version 1.18 of kubelet, kubeadm and kubectl:
-
-```
-KVERSION="1.18.1-00" ; sudo apt-get install -y kubelet=$KVERSION kubeadm=$KVERSION kubectl=$KVERSION
+sudo apt-get install -y kubelet kubeadm kubectl
+Upda
+`sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
 ```
 After installing is import mark theses packages to don't update automatically:
 ```
@@ -303,5 +303,5 @@ data:
 
 [MetalLB](https://metallb.universe.tf/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczMzM0NjU5N119
+eyJoaXN0b3J5IjpbMTk3OTA0MzM2MiwtNzMzMzQ2NTk3XX0=
 -->
