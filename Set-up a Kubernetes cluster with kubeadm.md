@@ -160,12 +160,10 @@ cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 ```
+
+Installing the version 1.18 of kubelet, kubeadm and kubectl:
 ```
-sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
-Upda
-`sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
+KVERSION="1.18.1-00" ; sudo apt-get install -y kubelet=$KVERSION kubeadm=$KVERSION kubectl=$KVERSION
 ```
 After installing is import mark theses packages to don't update automatically:
 ```
@@ -303,5 +301,5 @@ data:
 
 [MetalLB](https://metallb.universe.tf/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3OTA0MzM2MiwtNzMzMzQ2NTk3XX0=
+eyJoaXN0b3J5IjpbLTExMTkzNzc1MTcsLTczMzM0NjU5N119
 -->
